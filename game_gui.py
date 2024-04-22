@@ -1,5 +1,5 @@
 import tkinter as tk
-import character as Character
+from character import Character
 
 class GameGUI:
     def __init__(self, master):
@@ -43,4 +43,7 @@ class GameGUI:
         intelligence = int(self.stats["Intelligence"].get())
 
         self.character = Character(name, strength, agility, intelligence)
+
+        self.character.inventory.add_item("Potion", 3)
+        self.character.inventory.add_item("Sword", 1)
         print(self.character)

@@ -1,11 +1,13 @@
 class Location:
-    def __init__(self, name, description):
+    def __init__(self, name, description, npcs=None):
         self.name = name
         self.description = description
+        self.npcs = []
         self.connected_locations = {}
 
-    def connect(self, other, via):
-        self.connected_locations[via] = other
+    def add_npc(self, npc):
+        self.npcs.append(npc)
 
-    def __str__(self):
-        return self.name + " - " + self.description
+    # Associate a dirrection with the location (e.g. north)
+    def connect_location(self, direction, location):
+        self.connected_locations[direction] = location
